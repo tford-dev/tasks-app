@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import Form from './Form';
 
 export default class UserSignIn extends Component {
@@ -9,46 +10,55 @@ export default class UserSignIn extends Component {
     errors: [],
   }
   
-  render() {
-    //What user types into input boxes becomes is set to the corresponding state key using this.change on line 54
-    const {
-        emailAddress,
-        password,
-        errors,
-    } = this.state;
-    return (
-        <div className="container component-container load">
-            <Form 
-                cancel={this.cancel}
-                errors={errors}
-                submit={this.submit}
-                submitButtonText="Sign In"
-                elements={() => (
-                    <React.Fragment>
-                        <h2 className="form-header">Sign In <i className="fas fa-sign-in-alt"></i></h2>
-                        <label htmlFor="email" className="form-label">Email Address</label>
-                            <input 
-                                id="email" 
-                                name="emailAddress" 
-                                type="email" 
-                                onChange={this.change} 
-                                placeholder={emailAddress}
-                            />
-                        <label htmlFor="password" className="form-label">Password</label>
-                            <input 
-                                id="password" 
-                                name="password"
-                                type="password" 
-                                onChange={this.change} 
-                                placeholder={password} 
-                            />
-                        <p className="form-label sign-prompt">
-                        Don't have a user account? <Link to="/signup" className="sign-link">Click here</Link> to sign up!
-                        </p>                
-                    </React.Fragment>
-            )} />
-        </div>
-        );
+    render() {
+        const {context} = this.props;
+        const authUser = context.authenticatedUser;
+        //What user types into input boxes becomes is set to the corresponding state key using this.change on line 54
+        const {
+            emailAddress,
+            password,
+            errors,
+        } = this.state;
+
+        if(authUser){
+            return(
+                <Redirect to="/" />
+            )
+        } else {
+            return (
+                <div className="container component-container load">
+                    <Form 
+                        cancel={this.cancel}
+                        errors={errors}
+                        submit={this.submit}
+                        submitButtonText="Sign In"
+                        elements={() => (
+                            <React.Fragment>
+                                <h2 className="form-header">Sign In <i className="fas fa-sign-in-alt"></i></h2>
+                                <label htmlFor="email" className="form-label">Email Address</label>
+                                    <input 
+                                        id="email" 
+                                        name="emailAddress" 
+                                        type="email" 
+                                        onChange={this.change} 
+                                        placeholder={emailAddress}
+                                    />
+                                <label htmlFor="password" className="form-label">Password</label>
+                                    <input 
+                                        id="password" 
+                                        name="password"
+                                        type="password" 
+                                        onChange={this.change} 
+                                        placeholder={password} 
+                                    />
+                                <p className="form-label sign-prompt">
+                                Don't have a user account? <Link to="/signup" className="sign-link">Click here</Link> to sign up!
+                                </p>                
+                            </React.Fragment>
+                    )} />
+                </div>
+            );
+        }
     }
 
     //simple method to modify state value based on what is typed in input/textarea elements
@@ -83,7 +93,7 @@ export default class UserSignIn extends Component {
                     } else {
                         this.props.history.push(from);
                         if(window.location.pathname === "/error"){
-                            this.props.history.push("/")
+                            this.props.history.push("/");
                         }
                         console.log(`${emailAddress} is now signed in!`);
                     }
@@ -95,7 +105,7 @@ export default class UserSignIn extends Component {
     }
 
     cancel = () => {
-        this.props.history.push('/');
+        this.props.history.push('/signup');
         window.location.reload();
     }
 }

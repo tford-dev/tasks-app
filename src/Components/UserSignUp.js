@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import Form from './Form';
 
 export default class UserSignUp extends Component {
@@ -12,6 +13,8 @@ export default class UserSignUp extends Component {
     }
 
     render() {
+        const {context} = this.props;
+        const authUser = context.authenticatedUser;
         //What user types into input boxes becomes is set to the corresponding state key using this.change 
         const {
             firstName,
@@ -21,53 +24,59 @@ export default class UserSignUp extends Component {
             errors,
         } = this.state;
 
-        return (
-            <div className="container component-container load">
-                <Form 
-                    cancel={this.cancel}
-                    errors={errors}
-                    submit={this.submit}
-                    submitButtonText="Sign Up"
-                    elements={() => (
-                        <React.Fragment>
-                            <h2 className="form-header">Sign Up <i className="fas fa-user-plus"></i></h2>
-                            <label htmlFor="firstName" className="form-label">First Name</label>
-                            <input
-                                id="firstName"
-                                name="firstName"
-                                type="text"
-                                onChange={this.change} 
-                                placeholder={firstName}/>
-                            <label htmlFor="lastName" className="form-label">Last Name</label>
-                            <input
-                                id="lastName" 
-                                name="lastName" 
-                                type="text" 
-                                onChange={this.change} 
-                                placeholder={lastName}/>
-                            <label htmlFor="emailAddress" className="form-label">Email Address</label>
-                            <input 
-                                id="emailAddress" 
-                                name="emailAddress" 
-                                type="email"
-                                onChange={this.change} 
-                                placeholder={emailAddress}/>
-                            <label htmlFor="password" className="form-label">Password</label>
-                            <input 
-                                id="password" 
-                                name="password"
-                                type="password"
-                                onChange={this.change} 
-                                placeholder={password} 
-                            />
-                            <p className="form-label sign-prompt">
-                            Already have a user account? <Link to="/signin" className="sign-link">Click here</Link> to sign in!
-                            </p>                
-                        </React.Fragment>
-                )} />
-            </div>
-            );
-    }
+        if(authUser){
+            return(
+                <Redirect to="/" />
+            )
+        } else {
+            return (
+                <div className="container component-container load">
+                    <Form 
+                        cancel={this.cancel}
+                        errors={errors}
+                        submit={this.submit}
+                        submitButtonText="Sign Up"
+                        elements={() => (
+                            <React.Fragment>
+                                <h2 className="form-header">Sign Up <i className="fas fa-user-plus"></i></h2>
+                                <label htmlFor="firstName" className="form-label">First Name</label>
+                                <input
+                                    id="firstName"
+                                    name="firstName"
+                                    type="text"
+                                    onChange={this.change} 
+                                    placeholder={firstName}/>
+                                <label htmlFor="lastName" className="form-label">Last Name</label>
+                                <input
+                                    id="lastName" 
+                                    name="lastName" 
+                                    type="text" 
+                                    onChange={this.change} 
+                                    placeholder={lastName}/>
+                                <label htmlFor="emailAddress" className="form-label">Email Address</label>
+                                <input 
+                                    id="emailAddress" 
+                                    name="emailAddress" 
+                                    type="email"
+                                    onChange={this.change} 
+                                    placeholder={emailAddress}/>
+                                <label htmlFor="password" className="form-label">Password</label>
+                                <input 
+                                    id="password" 
+                                    name="password"
+                                    type="password"
+                                    onChange={this.change} 
+                                    placeholder={password} 
+                                />
+                                <p className="form-label sign-prompt">
+                                Already have a user account? <Link to="/signin" className="sign-link">Click here</Link> to sign in!
+                                </p>                
+                            </React.Fragment>
+                    )} />
+                </div>
+                );
+            }
+        }
 
     //simple method to modify state value based on what is typed in input/textarea elements
     change = (event) => {
@@ -122,7 +131,7 @@ export default class UserSignUp extends Component {
     }
 
     cancel = () => {
-        this.props.history.push('/');
+        this.props.history.push('/signin');
         window.location.reload();
     }
 }

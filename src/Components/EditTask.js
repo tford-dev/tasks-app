@@ -76,8 +76,7 @@ class EditTask extends Component {
                             <label htmlFor="task-time" className="form-label">Time</label>
                             <div className="task-time-container">
                                 <input id="task-time" type="time" name="time" onChange={this.change} value={time}/>
-                            </div>
-                                
+                            </div>   
                         </React.Fragment> 
                     )} 
                 />

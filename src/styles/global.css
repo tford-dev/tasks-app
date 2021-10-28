@@ -222,7 +222,8 @@ input[type=text], input[type=email], input[type=password], #task-description {
     outline: none;
     color: white;
     border-radius: 30px;
-    padding: 12px;
+    padding: 14px;
+    font-family: 'Rubik', sans-serif;
     border: none;
     font-size: 16px;
     cursor: pointer;
