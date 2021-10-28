@@ -69,7 +69,7 @@ class TaskDetail extends Component {
                             <p className="description">Description: {description}</p>
                             <div className="to-do-buttons">
                                 <Link className="anchor-edit" to={`/tasks/${id}/edit`}>Edit</Link>
-                                <button className="anchor-delete" onClick={this.del}>Delete</button>
+                                <Link className="anchor-delete" onClick={this.del} to={`/tasks/${id}`}>Delete</Link>
                                 <Link className="anchor-view" to={`/tasks`}>Home</Link>
                             </div>
                     </div>
