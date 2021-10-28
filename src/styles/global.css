@@ -62,9 +62,9 @@ a {
 .to-do-anchor {
     outline: 1px solid #00bfff;
     background-color: #bfefff;
-    border-radius: 30px;
     text-align: center;
     flex-wrap: wrap;
+    border-radius: 30px;
 }
 
 .to-do-header {
@@ -84,10 +84,10 @@ a {
 }
 .anchor-view, .anchor-edit, .anchor-delete {
     color: white;
-    border-radius: 30px;
     padding: 8px 20px;
     transition: .5s;
     margin: 0px 2px;
+    border-radius: 30px;
 }
 
 .anchor-view {
@@ -155,7 +155,6 @@ a {
 
 .sign-form {
     background-color: #bfefff;
-    border-radius: 30px;
     outline: 1px solid #00bfff;
     margin-top: 20px;
     text-align: center;
@@ -163,6 +162,7 @@ a {
     flex-wrap: wrap;
     justify-content: flex-start;
     padding: 0 15px;
+    border-radius: 30px;
 }
 
 .form-label {
@@ -176,10 +176,10 @@ label {
 input[type=text], input[type=email], input[type=time], input[type=password], #task-description {
     margin: 0px 10px; 
     border: 1px solid #4594ad;
-    border-radius: 8px;
     box-sizing: border-box;
     padding: 7px;
     line-height: 1.25;
+    border-radius: 8px;
 }
 
 input[type=text], input[type=email], input[type=password], #task-description {
@@ -192,11 +192,11 @@ input[type=text], input[type=email], input[type=password], #task-description {
 
 #task-time { 
     border: 1px solid #4594ad;
-    border-radius: 8px;
     box-sizing: border-box;
     padding: 7px;
     font-family: 'Rubik', sans-serif;
     float: left;
+    border-radius: 8px;
 }
 
 .sign-prompt {
@@ -221,13 +221,13 @@ input[type=text], input[type=email], input[type=password], #task-description {
     line-height: 1.25;
     outline: none;
     color: white;
-    border-radius: 30px;
     padding: 14px;
     font-family: 'Rubik', sans-serif;
     border: none;
     font-size: 16px;
     cursor: pointer;
     transition: .25s;
+    border-radius: 30px;
 }
 
 .form-submit {
