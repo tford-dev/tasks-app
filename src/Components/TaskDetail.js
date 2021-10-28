@@ -64,7 +64,7 @@ class TaskDetail extends Component {
                 <div className="to-do-anchor">
                     <div className="task-detail-container">
                         <h2 className="to-do-header">{title}</h2>
-                            <p>Time Uploaded: {dateFormat(createdAt)}</p>
+                            <p>Date Uploaded: {dateFormat(createdAt)}</p>
                             <p>Time Scheduled: {convertTime(time)}</p>
                             <p className="description">Description: {description}</p>
                             <div className="to-do-buttons">

@@ -65,7 +65,7 @@ class EditTask extends Component {
                     submitButtonText="Edit Task"
                     elements={() => (
                         <React.Fragment>
-                            <h2 className="form-header">Edit Task<i className="fas fa-edit"></i></h2>
+                            <h2 className="form-header">Edit Task <i className="fas fa-edit"></i></h2>
 
                             <label htmlFor="task-title" className="form-label">Title</label>
                             <input type="text" id="task-title" name="title" onChange={this.change} value={title} />
