@@ -31,7 +31,7 @@ class Tasks extends Component {
                     <div className="to-do-buttons">
                         <Link className="anchor-view" to={`/tasks/${task.id}`}>View</Link>
                         <Link className="anchor-edit" to={`/tasks/${task.id}/edit`}>Edit</Link>
-                        <button className="anchor-delete" onClick={()=> this.del(task.userId, task.id)}>Delete</button>
+                        <Link className="anchor-delete" to={`/`} onClick={()=> this.del(task.userId, task.id)}>Delete</Link>
                     </div>
                 </div>
             )
