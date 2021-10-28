@@ -4,11 +4,11 @@ import { Redirect } from 'react-router-dom';
 import Form from './Form';
 
 export default class UserSignIn extends Component {
-  state = {
-    emailAddress: '',
-    password: '',
-    errors: [],
-  }
+    state = {
+        emailAddress: '',
+        password: '',
+        errors: [],
+    }
   
     render() {
         const {context} = this.props;
@@ -106,6 +106,5 @@ export default class UserSignIn extends Component {
 
     cancel = () => {
         this.props.history.push('/signup');
-        window.location.reload();
     }
 }

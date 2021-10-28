@@ -64,7 +64,10 @@ a {
     background-color: #bfefff;
     text-align: center;
     flex-wrap: wrap;
-    border-radius: 30px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
 }
 
 .to-do-header {
@@ -87,7 +90,10 @@ a {
     padding: 8px 20px;
     transition: .5s;
     margin: 0px 2px;
-    border-radius: 30px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
 }
 
 .anchor-view {
@@ -162,7 +168,10 @@ a {
     flex-wrap: wrap;
     justify-content: flex-start;
     padding: 0 15px;
-    border-radius: 30px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;;
 }
 
 .form-label {
@@ -268,12 +277,7 @@ input:focus {
     width: 80%;
 }
 
-/*Animation For When Page Loads*/ 
 .load {
-    margin-top: 25px;
-    font-size: 21px;
-    text-align: center;
-
     -webkit-animation: fadein 1.5s; /* Safari, Chrome and Opera > 12.1 */
        -moz-animation: fadein 1.5s; /* Firefox < 16 */
         -ms-animation: fadein 1.5s; /* Internet Explorer */
