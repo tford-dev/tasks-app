@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css');
+
+body {
+    margin: 0;
+    font-family: 'Rubik', sans-serif;
+}
+
+header {
+    background-color: #00bfff;
+    height: 64px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/*Navbar*/
+.nav-logo {
+    color: #282729;
+    float: left;
+    transition: .5s;
+}
+
+.nav-logo:hover {
+    color: #E5E4E4;
+}
+
+.nav-ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-li {
+    display: inline;
+    padding-top: 23px;
+    padding-left: 7.5px;
+    padding-right: 7.5px;
+    padding-bottom: 22px;
+    color: #282729;
+    float: right;
+    height: 100%;
+    transition: .5s;
+    cursor: pointer;
+    text-align: center;
+}
+
+.nav-li:hover {
+    background-color: #0097c9;
+    color: #E5E4E4;
+}
+
+/*To-do Components*/
+.to-do-anchor {
+    outline: 1px solid #00bfff;
+    background-color: #bfefff;
+    border-radius: 30px;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.to-do-header {
+    padding-top: 10px;
+    width: 100%;
+    color: #00506b;
+}
+
+.to-do-time {
+    margin-top: -16px;
+    margin-bottom: 8px;
+    color: #00506b
+}
+
+.to-do-buttons {
+    padding-bottom: 18px;
+}
+.anchor-view, .anchor-edit, .anchor-delete {
+    color: white;
+    border-radius: 30px;
+    padding: 8px 20px;
+    transition: .5s;
+    margin: 0px 2px;
+}
+
+.anchor-view {
+    background-color: #00506b;
+    color: #E5E4E4;
+}
+
+.anchor-edit {
+    background-color:#28ab00;
+}
+
+.anchor-delete {
+    background-color: #c90000;
+    border: none;
+    height: 35px;
+    font-size: 16px;
+    font-family: 'Rubik', sans-serif;
+}
+
+.anchor-view:hover {
+    outline: 1px solid #00506b;
+    background-color: #E5E4E4;
+    color: #00506b;
+}
+
+.anchor-edit:hover {
+    outline: 1px solid #28ab00;
+    background-color: #c4ffb3;
+    color: #28ab00;
+}
+
+.anchor-delete:hover {
+    outline: 1px solid #c90000;
+    background-color: #ffcccc;
+    color: #c90000;
+}
+
+.fas, .fa-plus-square {
+    font-weight: bold;
+}
+
+.add {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.add-task {
+    transition: .5s;
+}
+
+.add-task:hover {
+    background-color: #00506b;
+    outline: none;
+}
+
+.add:hover {
+    color: #ffffff;
+}
+
+/*Forms*/
+.form-header {
+    color: #00506b;
+    margin: 10px auto;
+    width: 100%;
+
+}
+
+.sign-form {
+    background-color: #bfefff;
+    border-radius: 30px;
+    outline: 1px solid #00bfff;
+    margin-top: 20px;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 0 15px;
+}
+
+.form-label {
+    color: #00506b;   
+}
+
+label {
+    margin: 10px;
+}
+
+input[type=text], input[type=email], input[type=time], input[type=password], #task-description {
+    margin: 0px 10px; 
+    border: 1px solid #4594ad;
+    border-radius: 8px;
+    box-sizing: border-box;
+    padding: 7px;
+    line-height: 1.25;
+}
+
+input[type=text], input[type=email], input[type=password], #task-description {
+    width: 100%;
+}
+
+.task-time-container {
+    width: 100%;
+}
+
+#task-time { 
+    border: 1px solid #4594ad;
+    border-radius: 8px;
+    box-sizing: border-box;
+    padding: 7px;
+    font-family: 'Rubik', sans-serif;
+    float: left;
+}
+
+.sign-prompt {
+    width: 100%;
+}
+
+.sign-link {
+    text-decoration: underline;
+}
+
+.form-button-container {
+    margin: auto;
+    display: flex;
+}
+
+.form-submit, .form-cancel {
+    width: 50%;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-top: 10px;
+    margin-bottom: 15px; 
+    line-height: 1.25;
+    outline: none;
+    color: white;
+    border-radius: 30px;
+    padding: 12px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.form-submit {
+    background-color: #28ab00;
+}
+
+.form-submit:hover {
+    background-color: #1f8200;
+}
+
+.form-cancel {
+    background-color: #00506b;
+    color: #E5E4E4;
+}
+
+.form-cancel:hover {
+    outline: 1px solid #00506b;
+    background-color: #E5E4E4;
+    color: #00506b;
+}
+
+input:focus {
+    outline: none;
+}
+
+#task-description {
+    font-family: 'Rubik', sans-serif;
+}
+
+.error {
+    color: #b50000;
+    margin: auto;
+}
+
+/*Task-detail misc*/
+.task-detail-container {
+    margin: auto;
+    width: 80%;
+}
+
+/*Animation For When Page Loads*/ 
+.load {
+    margin-top: 25px;
+    font-size: 21px;
+    text-align: center;
+
+    -webkit-animation: fadein 1.5s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 1.5s; /* Firefox < 16 */
+        -ms-animation: fadein 1.5s; /* Internet Explorer */
+         -o-animation: fadein 1.5s; /* Opera < 12.1 */
+            animation: fadein 1.5s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@media only screen and (min-width: 650px) {
+    .component-container {
+        width: 60%;
+        margin: 0 auto;
+    }
+}
