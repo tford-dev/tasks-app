@@ -53,8 +53,6 @@ class NewTask extends Component {
     change = (event) => {
         const name = event.target.name;
         const value = event.target.value;
-        console.log(this.state);
-
         this.setState(() => {
             return {
                 [name]: value
