@@ -42,13 +42,12 @@ function ErrorsDisplay({ errors }) {
         if (errors.length) {
             errorsDisplay = (
                 <div className="error">
-                    <h3>Validation errors</h3>
-                        <div>
-                            <ul>
-								{/*Loops through errors from required inputs*/}
-                                {errors.map((error, i) => <li key={i}>{error}</li>)}
-                            </ul>
-                        </div>
+					<div>
+						<ul>
+							{/*Loops through errors from required inputs*/}
+							{errors.map((error, i) => <li key={i}>{error}</li>)}
+						</ul>
+					</div>
                 </div>
         );
 	errors.length = 0;

@@ -81,7 +81,6 @@ export default class UserSignIn extends Component {
         const {emailAddress, password, errors} = this.state;
 
         //signIn method is grabbed from actions object that is nested in value variable in ../Context.js
-        
             context.actions.signIn(emailAddress, password)
                 .then((user) => {
                     //If user does not exist, this.state.errors is pushed an error message that will be rendered to user
@@ -100,7 +99,9 @@ export default class UserSignIn extends Component {
                 })
                 .catch(err => {
                     console.log(err);
-                    this.props.history.push("/error");
+                    this.setState(()=>{
+                        return {errors: [...errors, "Sign-In was unsuccessful. Please make sure your input is valid data."]}
+                    })
                 })
     }
 

@@ -65,7 +65,6 @@ class Tasks extends Component {
                 context.data.deleteTask(taskId, authUser.emailAddress, authUser.password)
                     .then((response) => {
                         if(response === 'success'){
-                            window.location.reload();
                             //An alert window is triggered if user is not authorized to delete task
                             alert("Task Deleted.");
                             console.log("Task deleted");

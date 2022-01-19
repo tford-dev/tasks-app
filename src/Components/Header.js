@@ -29,7 +29,7 @@ export default class Header extends React.PureComponent {
                                     (window.location.pathname === "/signin") ?
                                         <React.Fragment>
                                             <ul className="nav-ul">
-                                                <li onClick={()=>{this.pageReload()}} className="nav-li"><NavLink to="/signup">Sign Up</NavLink></li>
+                                                <li className="nav-li"><NavLink to="/signup">Sign Up</NavLink></li>
                                             </ul>
                                         </React.Fragment>
                                         :
@@ -37,15 +37,15 @@ export default class Header extends React.PureComponent {
                                         (window.location.pathname === "/signup") ?
                                             <React.Fragment>
                                                 <ul className="nav-ul">
-                                                    <li onClick={()=>{this.pageReload()}} className="nav-li"><NavLink to="/signin">Sign In</NavLink></li>
+                                                    <li className="nav-li"><NavLink to="/signin">Sign In</NavLink></li>
                                                 </ul>
                                             </React.Fragment>
                                             :
                                             //If no user is authenticated, sign-in and sign-up link/buttons are rendered in nav bar
                                             <React.Fragment>
                                                 <ul className="nav-ul">
-                                                    <li onClick={()=>{this.pageReload()}} className="nav-li"><NavLink to="/signin">Sign In</NavLink></li>
-                                                    <li onClick={()=>{this.pageReload()}} className="nav-li"><NavLink to="/signup">Sign Up</NavLink></li>
+                                                    <li className="nav-li"><NavLink to="/signin">Sign In</NavLink></li>
+                                                    <li className="nav-li"><NavLink to="/signup">Sign Up</NavLink></li>
                                                 </ul>
                                             </React.Fragment>
                             }

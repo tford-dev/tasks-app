@@ -60,7 +60,6 @@ a {
 
 /*To-do Components*/
 .to-do-anchor {
-    outline: 1px solid #00bfff;
     background-color: #bfefff;
     text-align: center;
     flex-wrap: wrap;
@@ -169,7 +168,6 @@ a {
 
 .sign-form {
     background-color: #bfefff;
-    outline: 1px solid #00bfff;
     margin-top: 20px;
     text-align: center;
     display: flex;
