@@ -277,8 +277,12 @@ input:focus {
 }
 
 .error {
-    color: #b50000;
+    background: #b50000;
+	color: #ffffff;
     margin: auto;
+	margin-top: 15px;
+	padding: 1px;
+	border-radius: 5px;
 }
 
 /*Task-detail misc*/
