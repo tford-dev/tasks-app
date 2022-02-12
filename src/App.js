@@ -12,8 +12,8 @@ import TaskDetail from "./Components/TaskDetail";
 import EditTask from "./Components/EditTask";
 import Header from "./Components/Header";
 import NewTasks from "./Components/NewTask";
-import UserSignUp  from './Components/UserSignUp';
-import UserSignIn from './Components/UserSignIn';
+import UserSignUp  from './Components/SignUp';
+import UserSignIn from './Components/SignIn';
 import UserSignOut from './Components/UserSignOut';
 import Error from './Components/UnhandledError';
 import Forbidden from './Components/Forbidden';
@@ -29,7 +29,7 @@ function App(){
 					<Redirect exact from="/tasks" to="/" />
 					<Route path="/tasks/:id/edit" component={EditTask} />
 					<Route path="/tasks/new" component={NewTasks} />
-					{/*Make Private*/}<Route path="/tasks/:id" component={TaskDetail} />
+					<Route path="/tasks/:id" component={TaskDetail} />
 					<Route exact path="/signin" component={UserSignIn} />
 					<Route exact path="/signup" component={UserSignUp} />
 					<Route exact path="/error" component={Error} />
