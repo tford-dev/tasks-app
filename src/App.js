@@ -28,7 +28,7 @@ function App(){
 					<Route exact path="/" component={Tasks} />
 					<Redirect exact from="/tasks" to="/" />
 					<Route path="/tasks/:id/edit" component={EditTask} />
-					{/*Make Private*/}<Route path="/tasks/new" component={NewTasks} />
+					<Route path="/tasks/new" component={NewTasks} />
 					{/*Make Private*/}<Route path="/tasks/:id" component={TaskDetail} />
 					<Route exact path="/signin" component={UserSignIn} />
 					<Route exact path="/signup" component={UserSignUp} />
