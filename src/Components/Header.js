@@ -25,6 +25,14 @@ export default class Header extends React.PureComponent {
                                     </ul>
                                 </React.Fragment>
                                 :
+                                //If signup route, header renders sign-in link/button in nav bar
+                                (window.location.pathname === "/signup") ?
+                                    <React.Fragment>
+                                        <ul className="nav-ul">
+                                            <li className="nav-li"><NavLink to="/signin">Sign In</NavLink></li>
+                                        </ul>
+                                    </React.Fragment>   
+                                    :
                                     //If signin route, header renders sign-up link/button in nav bar
                                     (window.location.pathname === "/signin") ?
                                         <React.Fragment>
@@ -33,21 +41,13 @@ export default class Header extends React.PureComponent {
                                             </ul>
                                         </React.Fragment>
                                         :
-                                        //If signup route, header renders sign-in link/button in nav bar
-                                        (window.location.pathname === "/signup") ?
-                                            <React.Fragment>
-                                                <ul className="nav-ul">
-                                                    <li className="nav-li"><NavLink to="/signin">Sign In</NavLink></li>
-                                                </ul>
-                                            </React.Fragment>
-                                            :
-                                            //If no user is authenticated, sign-in and sign-up link/buttons are rendered in nav bar
-                                            <React.Fragment>
-                                                <ul className="nav-ul">
-                                                    <li className="nav-li"><NavLink to="/signin">Sign In</NavLink></li>
-                                                    <li className="nav-li"><NavLink to="/signup">Sign Up</NavLink></li>
-                                                </ul>
-                                            </React.Fragment>
+                                        //If no user is authenticated, sign-in and sign-up link/buttons are rendered in nav bar
+                                        <React.Fragment>
+                                            <ul className="nav-ul">
+                                                <li className="nav-li"><NavLink to="/signin">Sign In</NavLink></li>
+                                                <li className="nav-li"><NavLink to="/signup">Sign Up</NavLink></li>
+                                            </ul>
+                                        </React.Fragment>
                             }
                         </React.Fragment>
                     </nav>
