@@ -61,7 +61,7 @@ const NewTask = (props) => {
                 elements={() => (
                     <React.Fragment>
                         <h2 className="form-header">New Task <i className="far fa-list-alt"></i></h2>
-                        {errors.map((error, i) => <p key={i}><i className="fa-solid fa-circle-xmark"></i> {error}</p>)}
+                        {errors.map((error, i) => <p className="error" key={i}><i className="fa-solid fa-circle-xmark"></i> {error}</p>)}
                         <label htmlFor="task-title" className="form-label">Title</label>
                         <input type="text" id="task-title" name="title" onChange={(e)=>change(e, setTitle)} placeholder={title} />
 

@@ -281,7 +281,7 @@ input:focus {
 	color: #ffffff;
     margin: auto;
 	margin-top: 15px;
-	padding: 1px;
+    padding: 10px;
 	border-radius: 5px;
 }
 

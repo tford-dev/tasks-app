@@ -59,7 +59,7 @@ const createUser = async(user) => {
 }
 
 const signIn = async (emailAddress, password) => {
-    const user = await UserRequests.getUser(emailAddress, password);
+    const user = await getUser(emailAddress, password);
     if(user !== null){
         user.password = password;
         initialState.authenticatedUser = user;

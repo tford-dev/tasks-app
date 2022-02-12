@@ -61,7 +61,7 @@ const SignIn = (props) => {
                     elements={() => (
                         <React.Fragment>
                             <h2 className="form-header">Sign In <i className="fas fa-sign-in-alt"></i></h2>
-                            {errors.map((error, i) => <p key={i}><i className="fa-solid fa-circle-xmark"></i> {error}</p>)}
+                            {errors.map((error, i) => <p className="error" key={i}><i className="fa-solid fa-circle-xmark"></i> {error}</p>)}
                             <label htmlFor="email" className="form-label">Email Address</label>
                                 <input 
                                     id="email" 
