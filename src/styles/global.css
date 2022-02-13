@@ -26,7 +26,7 @@ a {
 .nav-logo {
     color: #282729;
     float: left;
-    transition: .5s;
+    transition: .125s;
 }
 
 .nav-logo:hover {
@@ -48,7 +48,7 @@ a {
     color: #282729;
     float: right;
     height: 100%;
-    transition: .5s;
+    transition: .125s;
     cursor: pointer;
     text-align: center;
 }
@@ -91,7 +91,7 @@ a {
 .anchor-view, .anchor-edit, .anchor-delete {
     color: white;
     padding: 8px 20px;
-    transition: .5s;
+    transition: .125s;
     margin: 0px 2px;
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
@@ -146,7 +146,7 @@ a {
 }
 
 .add-task {
-    transition: .5s;
+    transition: .125s;
 }
 
 .add-task:hover {
@@ -244,7 +244,7 @@ input[type=text], input[type=email], input[type=password], #task-description {
     border: none;
     font-size: 16px;
     cursor: pointer;
-    transition: .25s;
+    transition: .125s;
     border-radius: 30px;
 }
 
