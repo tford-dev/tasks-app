@@ -5,13 +5,14 @@ import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
 import Form from './Form';
 
-const SignIn = (props) => {
+export const SignIn = (props) => {
     const [emailAddress, setEmailAddress] = useState("");
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState([]);
     const [initialState, dispatch] = useStateValue();
     const authUser = initialState.authenticatedUser;
     
+    //Updates nav in global state
     useEffect(()=> {
         dispatch({
             type: "SET_NAV",
@@ -19,23 +20,24 @@ const SignIn = (props) => {
         })
     }, []);
 
-    //simple method to modify state value based on what is typed in input/textarea elements
+    //Function to modify state value based on what is typed in input/textarea elements
     const change = (event, setState) => {
         const value = event.target.value;
         setState(value);
     }
 
-    //Submit method takes required keys from state and sends the values to api 
+    //Function that takes required keys from state and sends the values to api 
     const submit = async() => {
         await initialState.signIn(emailAddress, password)
             .then((user) => {
-                //If user does not exist, errors is pushed an error message that will be rendered to user
+                //If user does not exist, an error message is pushed that will be rendered to user
                 if(user === null){
                     setErrors([...errors, "Sign-In was unsuccessful."])
                 } else {
                     if(window.location.pathname === "/error"){
                         props.history.push("/home");
                     }
+                    //Sets user in global state
                     dispatch({
                         type: "SET_USER",
                         authenticatedUser: user,
@@ -94,5 +96,3 @@ const SignIn = (props) => {
         );
     }
 }
-
-export default SignIn

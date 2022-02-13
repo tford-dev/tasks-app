@@ -1,16 +1,12 @@
-import React, { Component } from 'react'; 
+import React from 'react'; 
 
-class Forbidden extends Component {
-    render(){
-        return(
-            <main>
-                <div className="container component-container">
-                    <h2>Forbidden</h2>
-                    <p>Access Denied. You do not have the credentials to access this page.</p>
-                </div>
-            </main>
-        )
-    }
+export const Forbidden = () =>{
+    return(
+        <main>
+            <div className="container component-container">
+                <h2>Forbidden</h2>
+                <p>Access Denied. You do not have the credentials to access this page.</p>
+            </div>
+        </main>
+    )
 }
-
-export default Forbidden;

@@ -4,7 +4,7 @@ import { useStateValue } from '../ContextApi/StateProvider';
 import { Redirect } from 'react-router-dom';
 import Form from "./Form";
 
-const NewTask = (props) => {
+export const NewTask = (props) => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [time, setTime] = useState("");
@@ -84,5 +84,3 @@ const NewTask = (props) => {
         )
     )
 }
-
-export default NewTask;

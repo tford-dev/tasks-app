@@ -4,7 +4,7 @@ import { useStateValue } from '../ContextApi/StateProvider';
 import { Redirect } from 'react-router-dom';
 import Form from "./Form";
 
-const EditTask = (props) => {
+export const EditTask = (props) => {
     const [id, setId] = useState(null);
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
@@ -23,6 +23,7 @@ const EditTask = (props) => {
         errors
     };
 
+    //useEffect sets the task in the state
     useEffect(()=> {
         let key = props.match.params.id;
         initialState.getTask(key, authUser.emailAddress, authUser.password).then(response => {
@@ -109,5 +110,3 @@ const EditTask = (props) => {
         )
     )
 }
-
-export default EditTask;

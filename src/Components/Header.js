@@ -3,7 +3,7 @@ import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { useStateValue } from '../ContextApi/StateProvider';
 
-const Header = (props) => {
+export const Header = (props) => {
     const [initialState, dispatch] = useStateValue();
     const authUser = JSON.parse(initialState.authenticatedUser);
     return(
@@ -51,5 +51,3 @@ const Header = (props) => {
         </div>
     )
 }
-
-export default Header;

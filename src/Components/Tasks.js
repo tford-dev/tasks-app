@@ -4,13 +4,13 @@ import { useStateValue } from '../ContextApi/StateProvider';
 import {Link, Redirect} from 'react-router-dom';
 const convertTime = require("convert-time");
 
-const Tasks = (props) => {
+export const Tasks = (props) => {
     const [initialState, dispatch] = useStateValue();
     const [tasks, setTasks] = useState([]);
     const [errors, setErrors] = useState([]);
     const authUser = JSON.parse(initialState.authenticatedUser);
 
-    //When tasks ("/") are loaded, getTasks pushes response into tasks array
+    //useEffect sets tasks in state if there's an authenticated user
     useEffect(async() => {
         if(authUser){
             await initialState.getTasks(authUser.emailAddress, authUser.password).then(
@@ -62,8 +62,7 @@ const Tasks = (props) => {
         )
     })
 
-    return(
-        
+    return(    
         authUser ? (
             <main>
                 <div className="container component-container load">
@@ -80,5 +79,3 @@ const Tasks = (props) => {
         )
     )
 }
-
-export default Tasks;

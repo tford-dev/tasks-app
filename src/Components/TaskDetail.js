@@ -4,7 +4,7 @@ import { useStateValue } from '../ContextApi/StateProvider';
 import {Link, Redirect} from 'react-router-dom';
 const convertTime = require("convert-time");
 
-const TaskDetail = (props) => {
+export const TaskDetail = (props) => {
     const [id, setId] = useState(null);
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
@@ -101,5 +101,3 @@ const TaskDetail = (props) => {
         )
     )
 }
-
-export default TaskDetail;

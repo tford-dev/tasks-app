@@ -31,7 +31,6 @@ export const getUser = async(emailAddress, password) => {
         return response.json().then(data => {
             console.log(response);
             console.log(data.message)
-            //return data.message;
             throw new Error("Sign-in was unsuccessful, please enter valid data.");
         })
     } else if (response.status === 200) {
@@ -63,13 +62,14 @@ const signIn = async (emailAddress, password) => {
     if(user !== null){
         user.password = password;
         initialState.authenticatedUser = user;
-    //Sets authenticated user in cookies for 7 daYS
+    //Sets authenticated user in cookies for 7 days
     Cookies.set("authenticatedUser", JSON.stringify(user), {expires: 7});
     }
     //return user --old code
     return window.location.reload();
 } 
 
+//Sign out function to remove auth user from cookies and global state
 const signOut = () => {
     Cookies.remove("authenticatedUser");
     initialState.authenticatedUser = null;
@@ -153,6 +153,7 @@ const deleteTask = async (id, emailAddress, password) => {
     }
 }
 
+//Global State
 export const initialState = {
     authenticatedUser: Cookies.get("authenticatedUser") || null,
     getUser: getUser,
@@ -167,6 +168,7 @@ export const initialState = {
     navState: null,
 }
 
+//reducer is used for auth user and state for nav-header
 export const reducer = (state, action) => {
     switch(action.type){
         case 'SET_USER': 

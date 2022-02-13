@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
 import Form from './Form';
 
-const SignUp = (props) => {
+export const SignUp = (props) => {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [emailAddress, setEmailAddress] = useState("");
@@ -14,6 +14,7 @@ const SignUp = (props) => {
     const [initialState, dispatch] = useStateValue();
     const authUser = initialState.authenticatedUser;
 
+    //Sets the in global state
     useEffect(()=> {
         dispatch({
             type: "SET_NAV",
@@ -21,13 +22,13 @@ const SignUp = (props) => {
         })
     }, []);
 
-    //simple method to modify state value based on what is typed in input/textarea elements
+    //simple function to modify state value based on what is typed in input/textarea elements
     const change = (event, setState) => {
         const value = event.target.value;
         setState(value);
     }
 
-    //Submit method takes required keys from state and sends the values to api 
+    //Submit function takes required keys from state and sends the values to api 
     const submit = async() => {
         const user = {firstName, lastName, emailAddress, password};
 
@@ -109,5 +110,3 @@ const SignUp = (props) => {
             );
     }
 }
-
-export default SignUp;
