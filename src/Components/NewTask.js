@@ -20,7 +20,8 @@ const NewTask = (props) => {
     }
 
     //Submit method takes required keys from state and sends the values to api 
-    submit = () => {
+    const submit = () => {
+        setUserId(authUser.userId);
         const task = {
             title,
             description,
@@ -42,11 +43,12 @@ const NewTask = (props) => {
                     setErrors([...errors, response])
                 }
             }).catch(err => {
-                setErrors([...errors, err])
+                console.log(err);
+                setErrors([...errors, err.message])
             })
     }
 
-    cancel = () => {
+    const cancel = () => {
         props.history.push("/");
     }
 
@@ -62,6 +64,7 @@ const NewTask = (props) => {
                     <React.Fragment>
                         <h2 className="form-header">New Task <i className="far fa-list-alt"></i></h2>
                         {errors.map((error, i) => <p className="error" key={i}><i className="fa-solid fa-circle-xmark"></i> {error}</p>)}
+
                         <label htmlFor="task-title" className="form-label">Title</label>
                         <input type="text" id="task-title" name="title" onChange={(e)=>change(e, setTitle)} placeholder={title} />
 

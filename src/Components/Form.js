@@ -10,12 +10,12 @@ export default (props) => {
 		elements,
 	} = props;
 
-	function handleSubmit(event) {
+	const handleSubmit = (event) =>{
 		event.preventDefault();
 		submit();
 	}
 
-	function handleCancel(event) {
+	const handleCancel = (event) =>{
 		event.preventDefault();
 		cancel();
 	}

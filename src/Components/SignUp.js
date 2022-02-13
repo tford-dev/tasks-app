@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { useStateValue } from '../ContextApi/StateProvider';
 import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
@@ -14,6 +14,13 @@ const SignUp = (props) => {
     const [initialState, dispatch] = useStateValue();
     const authUser = initialState.authenticatedUser;
 
+    useEffect(()=> {
+        dispatch({
+            type: "SET_NAV",
+            navState: 2,
+        })
+    }, []);
+
     //simple method to modify state value based on what is typed in input/textarea elements
     const change = (event, setState) => {
         const value = event.target.value;
@@ -25,7 +32,7 @@ const SignUp = (props) => {
         const user = {firstName, lastName, emailAddress, password};
 
         //createUser method takes credentials from context api and course variable to execute request 
-        await initialState.UserRequests.createUser(user)
+        await initialState.createUser(user)
             .then(err => {
                 if(err.length){
                     console.log(err)

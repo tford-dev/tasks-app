@@ -1,5 +1,5 @@
 /* eslint-disable */ 
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { useStateValue } from '../ContextApi/StateProvider';
 import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
@@ -11,6 +11,13 @@ const SignIn = (props) => {
     const [errors, setErrors] = useState([]);
     const [initialState, dispatch] = useStateValue();
     const authUser = initialState.authenticatedUser;
+    
+    useEffect(()=> {
+        dispatch({
+            type: "SET_NAV",
+            navState: 1,
+        })
+    }, []);
 
     //simple method to modify state value based on what is typed in input/textarea elements
     const change = (event, setState) => {

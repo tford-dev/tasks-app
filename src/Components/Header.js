@@ -1,3 +1,4 @@
+/* eslint-disable */ 
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { useStateValue } from '../ContextApi/StateProvider';
@@ -21,7 +22,7 @@ const Header = (props) => {
                             </React.Fragment>
                             :
                             //If signup route, header renders sign-in link/button in nav bar
-                            (window.location.pathname === "/signup") ?
+                            (initialState.navState === 2) ?
                                 <React.Fragment>
                                     <ul className="nav-ul">
                                         <li className="nav-li"><NavLink to="/signin">Sign In</NavLink></li>
@@ -29,7 +30,7 @@ const Header = (props) => {
                                 </React.Fragment>   
                                 :
                                 //If signin route, header renders sign-up link/button in nav bar
-                                (window.location.pathname === "/signin") ?
+                                (initialState.navState === 1) ?
                                     <React.Fragment>
                                         <ul className="nav-ul">
                                             <li className="nav-li"><NavLink to="/signup">Sign Up</NavLink></li>

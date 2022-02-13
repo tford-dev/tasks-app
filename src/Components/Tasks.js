@@ -8,16 +8,18 @@ const Tasks = (props) => {
     const [initialState, dispatch] = useStateValue();
     const [tasks, setTasks] = useState([]);
     const [errors, setErrors] = useState([]);
-    const authUser = initialState.authenticatedUser;
+    const authUser = JSON.parse(initialState.authenticatedUser);
 
     //When tasks ("/") are loaded, getTasks pushes response into tasks array
     useEffect(async() => {
-        await initialState.getTasks(authUser.emailAddress, authUser.password).then(
-            response => setTasks(response)
-        )
-        .catch(error => {
-            console.log('Error ' + error);
-        });
+        if(authUser){
+            await initialState.getTasks(authUser.emailAddress, authUser.password).then(
+                response => setTasks(response)
+            )
+            .catch(error => {
+                console.log('Error ' + error);
+            });
+        }
     }, [])
 
     //Function to delete task
@@ -47,7 +49,8 @@ const Tasks = (props) => {
     }
 
     const indexArr = tasks.map(task => {
-        return (<div className="to-do-anchor load" key={task.id}>
+        return (
+            <div className="to-do-anchor load" key={task.id}>
                 <h2 className="to-do-header">{task.title}</h2>
                 <p className="to-do-time"><i className="far fa-clock"></i> {convertTime(task.time)}</p>
                 <div className="to-do-buttons">
@@ -60,6 +63,7 @@ const Tasks = (props) => {
     })
 
     return(
+        
         authUser ? (
             <main>
                 <div className="container component-container load">

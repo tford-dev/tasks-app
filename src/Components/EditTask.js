@@ -57,7 +57,7 @@ const EditTask = (props) => {
     }
 
     //Submit method takes required keys from state and sends the values to api 
-    submit = () => {
+    const submit = () => {
         initialState.updateTask(task, authUser.emailAddress, authUser.password)
             .then((response) => {
                 if(response === "success"){
@@ -74,7 +74,7 @@ const EditTask = (props) => {
             })
     }
 
-    cancel = () => {
+    const cancel = () => {
         props.history.push(`/tasks/${props.match.params.id}`);
     }
         

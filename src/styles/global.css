@@ -163,7 +163,6 @@ a {
     color: #00506b;
     margin: 10px auto;
     width: 100%;
-
 }
 
 .sign-form {
@@ -280,9 +279,10 @@ input:focus {
     background: #b50000;
 	color: #ffffff;
     margin: auto;
-	margin-top: 15px;
+    margin-bottom: 10px;
     padding: 10px;
 	border-radius: 5px;
+    width: 90%;
 }
 
 /*Task-detail misc*/

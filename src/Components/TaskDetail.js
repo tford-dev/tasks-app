@@ -27,6 +27,7 @@ const TaskDetail = (props) => {
                     setDescription(response.description);
                     setTime(response.time);
                     setUserId(response.userId);
+                    setCreatedAt(response.createdAt);
                 //If task does not belong to user, they are redirected to the /forbidden route
                 } else {
                     props.history.push("/forbidden");

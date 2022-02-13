@@ -77,7 +77,7 @@ const signOut = () => {
 
 //GET request to retrieve all tasks for a user
 const getTasks = async (emailAddress, password) =>{
-    const response = await this.api('/tasks', 'GET', null, true, {emailAddress, password});
+    const response = await api('/tasks', 'GET', null, true, {emailAddress, password});
     if(response.status === 200) {
         return response.json().then(data => data);
     } else if (response.status === 400) {
@@ -91,7 +91,7 @@ const getTasks = async (emailAddress, password) =>{
 
 //GET request to retrieve an individual task
 const getTask = async (id, emailAddress, password) => {
-    const response = await this.api(`/tasks/${id}`, 'GET', null, true, {emailAddress, password});
+    const response = await api(`/tasks/${id}`, 'GET', null, true, {emailAddress, password});
     if(response.status === 200) {
         return response.json().then(data => data);
     } else if (response.status === 400) {
@@ -105,7 +105,8 @@ const getTask = async (id, emailAddress, password) => {
 
 //POST request to create a task
 const createTask = async (obj, emailAddress, password) => {
-    const response = await this.api(`/tasks`, 'POST', obj, true, {emailAddress, password});
+    const response = await api(`/tasks`, 'POST', obj, true, {emailAddress, password});
+    console.log(obj);
     if(obj.title.length > 0 && obj.description.length > 0){
         if (response.status === 201) {
             return "success";
@@ -123,7 +124,7 @@ const createTask = async (obj, emailAddress, password) => {
 
 //PUT request to edit/update a course
 const updateTask = async(obj, emailAddress, password) => {
-    const response = await this.api(`/tasks/${obj.id}`, 'PUT', obj, true, {emailAddress, password});
+    const response = await api(`/tasks/${obj.id}`, 'PUT', obj, true, {emailAddress, password});
     if(obj.title.length > 0 && obj.description.length > 0){
         if (response.status === 204) {
             return "success";
@@ -141,7 +142,7 @@ const updateTask = async(obj, emailAddress, password) => {
 
 //DELETE request to delete a course from the database
 const deleteTask = async (id, emailAddress, password) => {
-    const response = await this.api(`/tasks/${id}`, 'DELETE', null, true, {emailAddress, password});
+    const response = await api(`/tasks/${id}`, 'DELETE', null, true, {emailAddress, password});
     if(response.status === 204){
         return "success";
     } else if (response.status === 403 ) {
@@ -163,6 +164,7 @@ export const initialState = {
     createTask: createTask,
     updateTask: updateTask,
     deleteTask: deleteTask,
+    navState: null,
 }
 
 export const reducer = (state, action) => {
@@ -172,6 +174,12 @@ export const reducer = (state, action) => {
                 ...state,
                 authenticatedUser: action.authenticatedUser,
             };
+        
+        case 'SET_NAV':
+            return {
+                ...state,
+                navState: action.navState,
+            }
         default:
             return state;
     }
