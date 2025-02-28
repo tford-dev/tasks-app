@@ -2,7 +2,7 @@ import Cookies from "js-cookie";
 
 //General API function for requests to server
 const api = (path, method='GET', body=null, requiresAuth=false, credentials=null) => {
-    const api = 'https://tasks-by-tforddev-api.herokuapp.com/api';
+    const api = 'https://tasks-by-tforddev-api-b9877a3b9e2d.herokuapp.com/api';
     const url = api + path;
 
     const options = {
