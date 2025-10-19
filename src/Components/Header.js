@@ -1,7 +1,6 @@
-
 /* eslint-disable */
 import React, { useEffect, useState } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 import { useStateValue } from '../ContextApi/StateProvider';
 
 const Sun = (props) => (
@@ -45,34 +44,48 @@ const ThemeToggle = () => {
 
 export const Header = () => {
   const [initialState] = useStateValue();
-  const authUser = JSON.parse(initialState.authenticatedUser || null);
+  const authUser = initialState.authenticatedUser
+    ? JSON.parse(initialState.authenticatedUser)
+    : null;
+  const location = useLocation();
+
+  const isOnSignIn = location.pathname === '/signin';
+  const isOnSignUp = location.pathname === '/signup';
 
   return (
-    <header>
+    <header className="shadow-sm bg-gradient-to-r from-sky-800 to-cyan-700">
       <nav className="nav">
-        {/* Left: Logo & Primary Nav (non-stacking, horizontally scrollable on small screens) */}
+        {/* Left: Logo & Authenticated-only Links */}
         <div className="nav-row">
           <h1 className="nav-logo"><Link to="/">Tasks App</Link></h1>
-          <ul className="nav-list">
-            <li><NavLink exact className="nav-link" activeClassName="nav-link-active" to="/">Tasks</NavLink></li>
-            <li><NavLink className="nav-link" activeClassName="nav-link-active" to="/tasks/new">New Task</NavLink></li>
-          </ul>
+          {authUser && (
+            <ul className="nav-list">
+              <li><NavLink exact className="nav-link" activeClassName="nav-link-active" to="/">Tasks</NavLink></li>
+              <li><NavLink className="nav-link" activeClassName="nav-link-active" to="/tasks/new">New Task</NavLink></li>
+            </ul>
+          )}
         </div>
 
-        {/* Right: Theme toggle + Auth */}
+        {/* Right: Theme toggle + Auth controls */}
         <div className="nav-row">
           <ThemeToggle />
           {authUser ? (
             <ul className="nav-list">
               <li className="nav-welcome hidden sm:block">Welcome, {authUser.firstName}</li>
-              <li>
-                <NavLink className="btn btn-secondary" activeClassName="nav-link-active" to="/signout">Sign Out</NavLink>
-              </li>
+              <li><NavLink className="btn btn-secondary" to="/signout">Sign Out</NavLink></li>
             </ul>
           ) : (
             <ul className="nav-list">
-              <li><NavLink className="btn btn-secondary" activeClassName="nav-link-active" to="/signin">Sign In</NavLink></li>
-              <li><NavLink className="btn btn-primary" activeClassName="nav-link-active" to="/signup">Sign Up</NavLink></li>
+              {isOnSignIn ? (
+                <li><NavLink className="btn btn-primary" to="/signup">Sign Up</NavLink></li>
+              ) : isOnSignUp ? (
+                <li><NavLink className="btn btn-secondary" to="/signin">Sign In</NavLink></li>
+              ) : (
+                <>
+                  <li><NavLink className="btn btn-secondary" to="/signin">Sign In</NavLink></li>
+                  <li><NavLink className="btn btn-primary" to="/signup">Sign Up</NavLink></li>
+                </>
+              )}
             </ul>
           )}
         </div>
