@@ -60,7 +60,7 @@ export const Header = () => {
           <h1 className="nav-logo"><Link to="/">Tasks App</Link></h1>
           {authUser && (
             <ul className="nav-list">
-              <li><NavLink exact className="nav-link" activeClassName="nav-link-active" to="/">Tasks</NavLink></li>
+              {/* <li><NavLink exact className="nav-link" activeClassName="nav-link-active" to="/">Tasks</NavLink></li> */}
               <li><NavLink className="nav-link" activeClassName="nav-link-active" to="/tasks/new">New Task</NavLink></li>
             </ul>
           )}
