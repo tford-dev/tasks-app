@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------- Base ---------- */
+@layer base {
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="time"],
+  input[type="date"],
+  input[type="number"],
+  input[type="search"],
+  textarea,
+  select {
+    @apply w-full rounded-xl border border-slate-300 bg-white shadow-inner ring-1 ring-slate-300/70
+           dark:bg-slate-900 dark:border-slate-700 dark:ring-slate-700/60
+           text-slate-900 dark:text-slate-100 placeholder-slate-500
+           px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { 
+    @apply bg-slate-100 text-slate-900 dark:bg-slate-950 dark:text-slate-100 
+           antialiased text-base leading-7 selection:bg-sky-200/70 dark:selection:bg-sky-700/60;
+  }
+  header { @apply sticky top-0 z-50 bg-gradient-to-r from-sky-800 to-cyan-700 shadow-md; }
+  a { @apply no-underline; }
+}
+
+/* Hide horizontal scrollbar on touch rows */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ---------- Layout tokens ---------- */
+@layer components {
+  .container { @apply mx-auto max-w-6xl px-6; }
+  .component-container { 
+    @apply mx-auto max-w-4xl px-6 sm:px-8 md:px-10 lg:px-12 py-12 
+           flex flex-col items-center justify-center text-center space-y-6;
+  }
+  .section { @apply py-8; }
+  .page-title { @apply text-3xl font-bold tracking-tight text-slate-900 dark:text-white text-center mb-6; }
+  .description { @apply leading-relaxed text-slate-700 dark:text-slate-300 text-center max-w-2xl mx-auto; }
+  .card { @apply rounded-2xl bg-white dark:bg-slate-900 shadow-lg border border-slate-200 dark:border-slate-800 p-8 transition-shadow hover:shadow-xl; }
+  .load { @apply text-slate-600 dark:text-slate-400; }
+  .error { @apply rounded-xl border border-amber-400 bg-amber-50 text-amber-800 px-4 py-3 dark:bg-amber-950/40 dark:border-amber-700 dark:text-amber-300; }
+}
+
+/* ---------- Navbar ---------- */
+@layer components {
+  .nav { @apply container flex h-16 items-center justify-between; }
+  .nav-logo { @apply text-white font-bold text-xl tracking-tight; }
+  .nav-row { @apply flex items-center gap-3 sm:gap-5; }
+  .nav-list { @apply flex items-center gap-4 sm:gap-6 whitespace-nowrap overflow-x-auto no-scrollbar; }
+  .nav-link { @apply text-white/90 hover:text-white px-3 py-2 rounded-lg font-medium transition-all hover:bg-white/15; }
+  .nav-link-active { @apply bg-white/25 text-white font-semibold shadow-sm; }
+  .nav-welcome { @apply text-white/90; }
+}
+
+/* ---------- Buttons ---------- */
+@layer components {
+  .btn { 
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 min-h-[44px] min-w-[44px]
+           font-semibold shadow-lg transition-all duration-200 active:translate-y-[1px]
+           focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2
+           focus-visible:ring-sky-500 focus-visible:ring-offset-slate-100 dark:focus-visible:ring-offset-slate-950;
+  }
+  .btn-primary { 
+    @apply bg-gradient-to-b from-sky-700 to-sky-800 text-white
+           hover:from-sky-600 hover:to-sky-700 hover:shadow-xl
+           active:from-sky-800 active:to-sky-900 border border-sky-800;
+  }
+  .btn-secondary { 
+    @apply bg-white text-slate-900 border border-slate-300 shadow
+           hover:bg-slate-100 hover:shadow-md active:shadow-sm
+           dark:bg-slate-800 dark:text-slate-100 dark:border-slate-700 dark:hover:bg-slate-700;
+  }
+  .btn-outline {
+    @apply bg-transparent text-slate-900 border border-slate-400
+           hover:bg-slate-50 hover:text-slate-900
+           dark:text-slate-100 dark:border-slate-600 dark:hover:bg-slate-800;
+  }
+  .btn-danger { 
+    @apply bg-gradient-to-b from-rose-600 to-rose-700 text-white
+           hover:from-rose-500 hover:to-rose-600 hover:shadow-xl active:shadow-md;
+  }
+  .btn-ghost { @apply text-white/90 hover:text-white bg-transparent hover:bg-white/15 active:bg-white/20; }
+  .btn-lg { @apply px-7 py-3.5 text-lg; }
+  .btn-icon { @apply inline-flex items-center justify-center rounded-xl p-3 min-h-[44px] min-w-[44px]; }
+}
+
+/* ---------- Forms ---------- */
+@layer components {
+  .form-grid { @apply grid grid-cols-1 gap-8 w-full max-w-3xl mx-auto; }
+  .form-label { @apply block text-sm font-semibold text-slate-700 dark:text-slate-200 mb-1 text-left; }
+  .form-input {
+    @apply w-full rounded-xl border border-slate-300 bg-white shadow-inner ring-1 ring-slate-300/70
+           dark:bg-slate-900 dark:border-slate-700 dark:ring-slate-700/60
+           text-slate-900 dark:text-slate-100 placeholder-slate-500
+           px-4 py-3 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all;
+  }
+  .form-textarea { @apply form-input min-h-[140px]; }
+  .form-button-container { @apply mt-8 flex items-center justify-center gap-5 flex-wrap; }
+  .form-submit { @apply btn btn-primary; }
+  .form-cancel { @apply btn btn-secondary; }
+  .form-helper { @apply text-sm text-slate-600 dark:text-slate-400; }
+  .sign-link { @apply text-sky-700 hover:text-sky-900 dark:text-sky-400; }
+  .sign-prompt { @apply text-sm text-slate-600 dark:text-slate-400; }
+}
+
+/* ---------- Task specific ---------- */
+@layer components {
+  .tasks-toolbar { @apply flex items-center justify-center gap-3 flex-wrap mb-8; }
+  .task-list { 
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 
+           justify-items-center place-content-center text-center w-full max-w-6xl mx-auto;
+  }
+  .task-card { @apply card hover:shadow-2xl transition-shadow w-full sm:w-[85%] md:w-[80%] lg:w-[75%]; }
+  .task-title { @apply text-lg font-semibold text-slate-900 dark:text-white text-center; }
+  .task-meta { @apply text-sm text-slate-600 dark:text-slate-400 text-center; }
+  .task-actions { @apply mt-4 flex items-center justify-center gap-3 sm:gap-4 flex-wrap; }
+  .task-time-container { @apply w-full; }
+}
+
+/* ---------- App-Specific Mappings ---------- */
+@layer components {
+  .to-do-buttons { @apply flex items-center justify-center gap-3 flex-wrap; }
+  .to-do-anchor { @apply btn btn-secondary mt-4; }
+  .to-do-anchor.add-task { @apply btn btn-primary w-full justify-center text-lg font-semibold shadow-xl; }
+  .anchor-edit { @apply btn btn-secondary; }
+  .anchor-view { @apply btn btn-outline; }
+  .anchor-delete { @apply btn btn-danger; }
+  .to-do-header { @apply text-lg font-semibold text-center; }
+  .to-do-time { @apply text-sm text-slate-600 dark:text-slate-400 text-center; }
+}
+
+/* ---------- Accessibility & Motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+
+@layer components {
+  .form-field { @apply space-y-3; }
+}
